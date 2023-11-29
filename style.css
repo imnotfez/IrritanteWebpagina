@@ -1,0 +1,119 @@
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+.gridcontainer {
+    display: grid;
+    gap: 1%;
+    grid-template-columns: 10vw repeat(2, 10vw) 20vw 50vw;
+    grid-template-rows: 10vh 60vh 30vh;
+    background-color: #ff000000;
+}
+
+.grid-item {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    background-color: #ffffff;
+}
+
+.item1, .item3, .item4 {
+    grid-column: span 4;
+    text-align: left;
+    margin-left: 15%;
+}
+
+.item1 {
+    grid-row: 1;
+}
+
+.item2 {
+    display: flex;
+    grid-column: span 1;
+    grid-row: span 3;
+    background-color: #C52146;
+    align-items: center;
+    justify-content: center;
+}
+
+.item2 img {
+    max-height: 87.5vh;
+    width: auto;
+}
+
+.item3 {
+    grid-row: 2;
+}
+
+.item4 {
+    grid-row: 3;
+}
+
+.Title {
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
+.Text {
+    font-size: 1.5vw;
+}
+
+.item4 button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: crosshair;
+    color: transparent;
+}
+
+.item4 button img {
+    transition: transform 0.3s;
+}
+
+.item4 button:hover img {
+    transform: scale(1.1);
+}
+
+.item4 p {
+    font-size: 1.0vw;
+    margin-top: 50px;
+    color: rgb(35, 35, 35);
+}
+
+.iphonescreen {
+    z-index: 1;
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-y: visible;
+        overflow-x: hidden;
+    }
+    .gridcontainer {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .item1, .item2, .item3, .item4 {
+        grid-column: span 1;
+        margin-left: 0;
+    }
+    .Title {
+        font-size: 10vw; 
+    }
+
+    .Text {
+        font-size: 6vw; 
+    }
+
+    .item4 p {
+        font-size: 6vw;
+    }
+}
