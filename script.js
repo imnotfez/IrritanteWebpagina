@@ -1,67 +1,69 @@
 function showAlertIOS() {
-  changeVideo("vids/holymoly.mp4");
+  changeVideo("vids/whistle.mp4");
+
 }
 
 function showAlertANDROID() {
-  changeVideo("vids/holymoly.mp4");
+  changeVideo("vids/whistle.mp4");
+  let titleElement = document.querySelector('.grid-item.item3 .Title');
+  let textElement = document.querySelector('.grid-item.item3 .Text');
+
+  titleElement.innerText = 'Whistle';
+  textElement.innerText = 'Can you blow my whistle baby, whistle baby let me know, Girl im gonna show you how to do it, And we start real slow You just put your lips together  And youcome real close Can you blow my whistle baby';
 }
-
-// ... (the rest of your code)
-
-
 
 
 function changeVideo(videoSrc) {
-  // Get the image element by class name
+  // Haal het afbeeldingselement op via de klassenaam
   var imgElement = document.querySelector('.grid-item.item2 img');
 
-  // Check if the imgElement is found
+  // Controleer of het imgElement is gevonden
   if (imgElement) {
-    // Change the src attribute to the new video source
+    // Verander het src-attribuut naar de nieuwe videosource
     imgElement.src = videoSrc;
 
-    // Create a video element
+    // Maak een video-element aan
     var videoElement = document.createElement('video');
     videoElement.src = videoSrc;
     videoElement.controls = true;
 
-    // Set the volume to 0.1 initially
+    // Zet het volume in het begin op 0.1
     videoElement.volume = 0.1;
 
-    // Set width and height of the video element
-    videoElement.width = 640; // Adjust the width as needed
-    videoElement.height = 360; // Adjust the height as needed
+    // Stel breedte en hoogte van het video-element in
+    videoElement.width = 640; // Pas de breedte aan indien nodig
+    videoElement.height = 360; // Pas de hoogte aan indien nodig
 
-    // Add event listener for the "play" event
+    // Voeg een gebeurtenisluisteraar toe voor het "play"-evenement
     videoElement.addEventListener('play', function () {
-      // Remove the image when the video starts playing
+      // Verwijder de afbeelding wanneer de video begint af te spelen
       imgElement.style.display = 'none';
     });
 
-    // Add event listener for the "ended" event
+    // Voeg een gebeurtenisluisteraar toe voor het "ended"-evenement
     videoElement.addEventListener('ended', function () {
-      // Show the image again when the video ends
+      // Toon de afbeelding opnieuw wanneer de video eindigt
       imgElement.style.display = 'block';
 
-      // Increase the volume by 0.1 (10%) every time the video ends
+      // Verhoog het volume met 0.1 (10%) telkens wanneer de video eindigt
       videoElement.volume += 0.1;
 
-      // Loop the video
+      // Herhaal de video
       videoElement.currentTime = 0;
       videoElement.play();
     });
 
-    // Append the video element to the "iphonescreen" div
+    // Voeg het video-element toe aan de "iphonescreen" div
     var iphonescreen = document.querySelector('.grid-item.item2 .iphonescreen');
     if (iphonescreen) {
       iphonescreen.appendChild(videoElement);
 
-      // Play the video immediately
+      // Speel de video onmiddellijk af
       videoElement.play();
     } else {
-      console.error('iphonescreen element not found');
+      console.error('iphonescreen-element niet gevonden');
     }
   } else {
-    console.error('Image element not found');
+    console.error('Afbeeldingselement niet gevonden');
   }
 }
