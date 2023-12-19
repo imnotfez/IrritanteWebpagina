@@ -2,10 +2,11 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #ffffff;
+    transition: background-color 2s ease-in-out;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     overflow-y: hidden;
     overflow-x: hidden;
+    background-color: #ffffff;
 }
 
 .gridcontainer {

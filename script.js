@@ -1,9 +1,14 @@
 function showAlertIOS() {
+  changeImagesToGifs();
   changeVideo("vids/whistle.mp4");
+  document.body.style.backgroundColor = 'black';
+  document.querySelector('.item2').style.backgroundColor = 'black';
 
 }
 
 function showAlertANDROID() {
+  document.body.style.backgroundColor = 'black';
+  changeImagesToGifs();
   changeVideo("vids/whistle.mp4");
   let titleElement = document.querySelector('.grid-item.item3 .Title');
   let textElement = document.querySelector('.grid-item.item3 .Text');
@@ -53,12 +58,11 @@ function changeVideo(videoSrc) {
       videoElement.play();
     });
 
-    // Voeg het video-element toe aan de "iphonescreen" div
+    //   Voeg het video-element toe aan de "iphonescreen" div
     var iphonescreen = document.querySelector('.grid-item.item2 .iphonescreen');
     if (iphonescreen) {
       iphonescreen.appendChild(videoElement);
 
-      // Speel de video onmiddellijk af
       videoElement.play();
     } else {
       console.error('iphonescreen-element niet gevonden');
@@ -66,4 +70,28 @@ function changeVideo(videoSrc) {
   } else {
     console.error('Afbeeldingselement niet gevonden');
   }
+}
+document.getElementById('btnIOS').addEventListener('click', function() {
+  showAlertIOS();
+  this.style.display = 'none';
+});
+
+document.getElementById('btnANDROID').addEventListener('click', function() {
+  showAlertANDROID();
+  this.style.display = 'none';
+  showAlertIOS.style.display = 'none';
+});
+
+
+function changeImagesToGifs() {
+  document.getElementById('btnIOS').onclick = function() {
+      document.getElementById('logoItem').src = 'imgs/giphy.gif';
+
+      // add any other images you want to change to their gif versions here
+  };
+
+  document.getElementById('btnANDROID').onclick = function() {
+      document.getElementById('logoItem').src = 'imgs/giphy.gif';
+      // add any other images you want to change to their gif versions here
+  };
 }
